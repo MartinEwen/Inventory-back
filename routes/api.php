@@ -24,13 +24,13 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('categories/{id}', [CategoryController::class, 'destroy']);
 });
 
-Route::delete('products/{id}', [ProductController::class, 'destroy']);
 Route::middleware('auth:api')->group(function () {
+    Route::get('products/low-stock', [ProductController::class, 'lowStock']);
     Route::post('products', [ProductController::class, 'store']);
     Route::put('products/{id}', [ProductController::class, 'update']);
     Route::patch('products/{id}', [ProductController::class, 'update']);
-    Route::get('products/low-stock', [ProductController::class, 'lowStock']);
     Route::get('products/{id}/check-stock', [ProductController::class, 'checkStockLevel']);
 });
+Route::delete('products/{id}', [ProductController::class, 'destroy']);
 Route::get('products', [ProductController::class, 'index']);
 Route::get('products/{id}', [ProductController::class, 'show']);

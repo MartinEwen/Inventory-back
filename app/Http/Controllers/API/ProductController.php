@@ -150,8 +150,6 @@ class ProductController extends Controller
      */
     public function lowStock()
     {
-        // Pour test uniquement
-        logger('lowStock route hit'); // ou dd('lowStock called');
         $products = Product::with('category')
             ->whereColumn('quantity', '<=', 'alerte')
             ->get();
