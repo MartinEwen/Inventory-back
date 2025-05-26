@@ -16,6 +16,6 @@ class ProductSeeder extends Seeder
             \App\Models\Category::factory(5)->create();
         }
 
-        \App\Models\Product::factory(15)->create();
+        \App\Models\Product::factory(150)->create();
     }
 }
